@@ -6,10 +6,63 @@ ul,
 li {
   list-style: none;
 }
+input {
+  outline: none;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix::after {
+  content: '';
+  clear: both;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
 #title {
+  font-size: 30px;
   text-align: center;
-  height: 100px;
-  line-height: 100px;
+  height: 50px;
+  line-height: 50px;
+}
+#help {
+  height: 50px;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+#help li {
+  float: left;
+  margin-right: 10px;
+  height: 20px;
+  line-height: 20px;
+}
+#help li span {
+  float: left;
+  font-size: 12px;
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 5px;
+}
+#help li .box {
+  float: left;
+  display: block;
+  border: 1px dashed #000;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+}
+#help li #unkua {
+  background-color: #ddd;
+}
+#help li #pkua {
+  background-color: #a7c7f0;
+}
+#help li #ikua {
+  background-color: #f0caa7;
+}
+#help li #bkua {
+  background-color: #adf0a7;
 }
 #person {
   overflow: hidden;
@@ -39,9 +92,20 @@ li {
   background-color: #f58216;
 }
 #person .active_p {
-  background-color: #1570e7;
+  background-color: #4093ff;
 }
-#pBtn {
+#Btn {
+  position: relative;
+  padding-bottom: 30px;
+}
+#Btn #iInput {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 16px;
+  left: 210px;
+}
+#Btn #pBtn {
   float: left;
   width: 100px;
   height: 50px;
@@ -52,7 +116,7 @@ li {
   margin-left: 50px;
   cursor: pointer;
 }
-#iBtn {
+#Btn #iBtn {
   float: left;
   width: 100px;
   height: 50px;
@@ -63,14 +127,36 @@ li {
   margin-left: 50px;
   cursor: pointer;
 }
-#saveBtn {
-  float: left;
+#Btn #resetBtn {
+  float: right;
   width: 100px;
   height: 50px;
   line-height: 50px;
   text-align: center;
-  background-color: #32d872;
+  background-color: #ff8a8a;
   border: 1px solid #000;
-  margin-left: 50px;
+  margin-right: 50px;
+  cursor: pointer;
+}
+#Btn #saveBtn {
+  float: right;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #adf0a7;
+  border: 1px solid #000;
+  margin-right: 50px;
+  cursor: pointer;
+}
+#Btn #refreshBtn {
+  float: right;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #f0efa7;
+  border: 1px solid #000;
+  margin-right: 50px;
   cursor: pointer;
 }

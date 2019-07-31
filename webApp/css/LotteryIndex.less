@@ -2,19 +2,85 @@
   margin: 0;
   padding: 0;
 }
-ul,li{
+
+ul,
+li {
   list-style: none;
 }
 
+input {
+  outline: none;
+}
+
+.clearfix {
+  zoom: 1;
+
+  &::after {
+    content: '';
+    clear: both;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}
 
 #title {
+  font-size: 30px;
   text-align: center;
-  height: 100px;
-  line-height: 100px;
+  height: 50px;
+  line-height: 50px;
+}
+
+#help {
+  height: 50px;
+  vertical-align: middle;
+  margin-left: 20px;
+
+  li {
+    float: left;
+    margin-right: 10px;
+    height: 20px;
+    line-height: 20px;
+
+    span {
+      float: left;
+      font-size: 12px;
+      display: block;
+      height: 20px;
+      line-height: 20px;
+      margin-right: 5px;
+    }
+
+    .box {
+      float: left;
+      display: block;
+      border: 1px dashed #000;
+      width: 20px;
+      height: 20px;
+      box-sizing: border-box;
+    }
+
+    #unkua {
+      background-color: #ddd;
+    }
+
+    #pkua {
+      background-color: #a7c7f0;
+    }
+
+    #ikua {
+      background-color: #f0caa7;
+    }
+
+    #bkua {
+      background-color: #adf0a7;
+    }
+  }
 }
 
 #person {
   overflow: hidden;
+
   li {
     text-align: center;
     width: 100px;
@@ -28,53 +94,98 @@ ul,li{
   .un {
     background-color: #ddd;
   }
+
   .i {
     background-color: #f0caa7;
   }
+
   .p {
     background-color: #a7c7f0;
   }
+
   .b {
     background-color: #adf0a7;
   }
+
   .active_i {
     background-color: #f58216;
   }
+
   .active_p {
-    background-color: #1570e7;
+    background-color: #4093ff;
   }
 }
 
-#pBtn {
-  float: left;
-  width: 100px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  background-color: #a7c7f0;
-  border: 1px solid #000;
-  margin-left: 50px;
-  cursor: pointer;
-}
-#iBtn {
-  float: left;
-  width: 100px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  background-color: #f0caa7;
-  border: 1px solid #000;
-  margin-left: 50px;
-  cursor: pointer;
-}
-#saveBtn {
-  float: left;
-  width: 100px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  background-color: #32d872;
-  border: 1px solid #000;
-  margin-left: 50px;
-  cursor: pointer;
+#Btn {
+  position: relative;
+  padding-bottom: 30px;
+
+  #iInput {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 16px;
+    left: 210px;
+  }
+
+  #pBtn {
+    float: left;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #a7c7f0;
+    border: 1px solid #000;
+    margin-left: 50px;
+    cursor: pointer;
+  }
+
+  #iBtn {
+    float: left;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #f0caa7;
+    border: 1px solid #000;
+    margin-left: 50px;
+    cursor: pointer;
+
+  }
+
+  #resetBtn {
+    float: right;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #ff8a8a;
+    border: 1px solid #000;
+    margin-right: 50px;
+    cursor: pointer;
+  }
+
+  #saveBtn {
+    float: right;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #adf0a7;
+    border: 1px solid #000;
+    margin-right: 50px;
+    cursor: pointer;
+  }
+
+  #refreshBtn {
+    float: right;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #f0efa7;
+    border: 1px solid #000;
+    margin-right: 50px;
+    cursor: pointer;
+  }
 }

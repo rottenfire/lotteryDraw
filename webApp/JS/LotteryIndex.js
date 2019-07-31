@@ -16,8 +16,6 @@ $(function () {
   var pNow = [];
   // 滚动动画锁
   var rollLock = false;
-  // 一次性抽取的人数
-  // var perNum = 1;
 
   initData();
   resetActiveArr('b');
@@ -93,7 +91,7 @@ $(function () {
             }
             pNow[i] = ele;
           });
-          console.log('pNow:',pNow);
+          console.log('pNow:', pNow);
           // console.log('iArr:', iArr);
         } else if (type === 'active_i') {
           iNow = [];
@@ -104,7 +102,7 @@ $(function () {
             }
             iNow[i] = ele;
           });
-          console.log('iNow:',iNow);
+          console.log('iNow:', iNow);
           // console.log('pArr:', pArr);
         }
         // console.log('完成啦');
@@ -119,8 +117,11 @@ $(function () {
 
   // 随机抽取n个人,返回id组成的数组
   function randPickN(n, arr) {
+    if (arr.length === 0) {
+      return [];
+    }
     if (n > arr.length) {
-      return;
+      return arr;
     }
     var oriArr = [];
     var resArr = [];
@@ -146,7 +147,7 @@ $(function () {
         if (item.id === ele) {
           console.log(item);
           console.log('存在iiiiiiiii');
-          if(item.state === 'un') {
+          if (item.state === 'un') {
             localData.data[idx].state = 'i';
             console.log(localData.data[idx]);
           } else if (item.state === 'p') {
@@ -162,7 +163,7 @@ $(function () {
         if (item.id === ele) {
           console.log(item);
           console.log('存在pppppppp');
-          if(item.state === 'un') {
+          if (item.state === 'un') {
             localData.data[idx].state = 'p';
             console.log(localData.data[idx]);
           } else if (item.state === 'i') {
@@ -174,8 +175,19 @@ $(function () {
     });
     console.log(localData.data);
     var saveD = JSON.stringify(localData);
-    console.log(saveD);
-    localStore.setItem('lotteryData',saveD);
+    // console.log(saveD);
+    localStore.setItem('lotteryData', saveD);
+  }
+
+  // 重置数据
+  function resetData() {
+    localData.data.forEach(function (ele, i) {
+      ele.state = 'un';
+    })
+    var saveD = JSON.stringify(localData);
+    // console.log(saveD);
+    localStore.setItem('lotteryData', saveD);
+    window.location.reload();
   }
 
   // 被夸人按钮事件
@@ -192,16 +204,54 @@ $(function () {
     if (rollLock) {
       return;
     }
+    var num = $('#iInput').val()? parseInt($('#iInput').val()) : 5;
+    // var num = parseInt($('#iInput').val());
     resetActiveArr('p');
-    pickFunction(5, iArr, 'active_i');
+    pickFunction(num, iArr, 'active_i');
   });
 
   // 保存本次选择按钮事件
   $('#saveBtn').on('click', function () {
+    if (rollLock) {
+      return;
+    }
     saveData();
   });
 
 
+  // 重置按钮事件
+  $('#resetBtn').on('click', function () {
+    if (rollLock) {
+      return;
+    }
+    $('#deleteModal').modal('show');
+  })
 
+  // 确认重置按钮事件
+  $('#confirmBtn').on('click', function () {
+    resetData();
+  })
+
+  // 刷新按钮事件
+  $('#refreshBtn').on('click', function () {
+    if (rollLock) {
+      return;
+    }
+    window.location.reload();
+  })
+
+  $('#iInput').on('keyup', function (e) {
+
+    console.log($(this).val());
+    console.log('key', e.keyCode);
+    var personNum = $(this).val();
+    if (e.keyCode > 57 || e.keyCode <= 48 && e.keyCode!== 13 && e.keyCode!== 8) {
+      console.log('cuole !');
+      personNum=personNum.substring(0,personNum.length-1);
+      $(this).val(personNum);
+    }
+      // if(e)
+    console.log(personNum);
+  })
 
 });
