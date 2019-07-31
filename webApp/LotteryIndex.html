@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lottery</title>
+  <link rel="stylesheet" href="./css/LotteryIndex.css">
+  <script src="./JS/jquery-1.12.4.min.js"></script>
+  <script src="./JS/template-web.js"></script>
+  <!-- 插入初始人员数据 -->
+  <!-- <script src="./JS/localData.js"></script> -->
+  <script src="./JS/LotteryIndex.js"></script>
+</head>
+
+<body>
+  <h3 id="title">Lottery</h3>
+  <ul id="person">
+    
+  </ul>
+  <div id="pBtn">pBtn</div>
+  <div id="iBtn">iBtn</div>
+  <div id="saveBtn">saveBtn</div>
+</body>
+
+<!-- 人员列表模板 -->
+<script id="personLi" type="text/html">
+  {{each data item}}
+    <li class="{{item.state}}" id="li{{item.id}}">{{item.name}}</li>
+  {{/each}}
+</script>
+
+</html>
