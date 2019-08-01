@@ -160,3 +160,7 @@ input {
   margin-right: 50px;
   cursor: pointer;
 }
+#initDataP {
+  font-size: 30px;
+  text-align: center;
+}
