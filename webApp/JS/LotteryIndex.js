@@ -15,10 +15,6 @@ $(function () {
   var iNow = [];
   // 本次选中被夸的人
   var pNow = [];
-  // 主动跳数组
-  var iJump = [];
-  // 被夸跳数组
-  var pJump = [];
   // 滚动动画锁
   var rollLock = false;
 
@@ -105,9 +101,6 @@ $(function () {
           });
           console.log('pNow:', pNow);
           addJump(pNow);
-          for (var i = 0; i < pNow.length; i++) {
-            pJump[i] = pNow[i];
-          }
           // console.log('iArr:', iArr);
         } else if (type === 'active_i') {
           iNow = [];
@@ -121,9 +114,6 @@ $(function () {
           });
           console.log('iNow:', iNow);
           addJump(iNow);
-          for (var i = 0; i < iNow.length; i++) {
-            iJump[i] = iNow[i];
-          }
           // console.log('pArr:', pArr);
         }
       }
@@ -223,7 +213,6 @@ $(function () {
     arr.forEach(function(ele) {
       $('#person').find('#li' + ele).removeClass('jump');
     })
-    arr = [];
   }
 
   // 为各个按钮绑定事件
@@ -233,8 +222,8 @@ $(function () {
       if (rollLock) {
         return;
       }
-      console.log(iNow);
-      removeJump(pJump);
+      console.log('pNow:-----',pNow);
+      removeJump(pNow);
       resetActiveArr('i');
       pickFunction(1, pArr, 'active_p');
     });
@@ -244,8 +233,10 @@ $(function () {
       if (rollLock) {
         return;
       }
+      console.log('iNow:-----',iNow);
+
       var num = $('#iInput').val() ? parseInt($('#iInput').val()) : 5;
-      removeJump(iJump);
+      removeJump(iNow);
       resetActiveArr('p');
       pickFunction(num, iArr, 'active_i');
     });
@@ -285,9 +276,9 @@ $(function () {
     // input框输入去掉非数字字符
     $('#iInput').on('keyup', function (e) {
       // console.log($(this).val());
-      // console.log('key', e.keyCode);
+      console.log('key', e.keyCode);
       var personNum = $(this).val();
-      if (e.keyCode > 57 || e.keyCode <= 48 && e.keyCode !== 13 && e.keyCode !== 8) {
+      if (e.keyCode > 57 || e.keyCode < 48 && e.keyCode !== 13 && e.keyCode !== 8) {
         // console.log('cuole !');
         personNum = personNum.substring(0, personNum.length - 1);
         $(this).val(personNum);

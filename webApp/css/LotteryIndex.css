@@ -158,7 +158,7 @@ input {
   cursor: pointer;
 }
 .jump {
-  animation: jump 0.8s ease-in-out infinite;
+  animation: jump 1.2s ease-in-out infinite;
 }
 @keyframes jump {
   0% {
