@@ -145,14 +145,14 @@ $(function () {
       // console.log(ele);
       localData.data.forEach(function (item, idx) {
         if (item.id === ele) {
-          console.log(item);
-          console.log('存在iiiiiiiii');
+          // console.log(item);
+          // console.log('存在iiiiiiiii');
           if (item.state === 'un') {
             localData.data[idx].state = 'i';
-            console.log(localData.data[idx]);
+            // console.log(localData.data[idx]);
           } else if (item.state === 'p') {
             localData.data[idx].state = 'b';
-            console.log(localData.data[idx]);
+            // console.log(localData.data[idx]);
           }
         }
       })
@@ -216,6 +216,7 @@ $(function () {
       return;
     }
     saveData();
+    window.location.reload();
   });
 
 
@@ -240,18 +241,18 @@ $(function () {
     window.location.reload();
   })
 
-  $('#iInput').on('keyup', function (e) {
 
-    console.log($(this).val());
-    console.log('key', e.keyCode);
+  // input框输入去掉非数字字符
+  $('#iInput').on('keyup', function (e) {
+    // console.log($(this).val());
+    // console.log('key', e.keyCode);
     var personNum = $(this).val();
     if (e.keyCode > 57 || e.keyCode <= 48 && e.keyCode!== 13 && e.keyCode!== 8) {
-      console.log('cuole !');
+      // console.log('cuole !');
       personNum=personNum.substring(0,personNum.length-1);
       $(this).val(personNum);
     }
-      // if(e)
-    console.log(personNum);
+    // console.log(personNum);
   })
 
 });

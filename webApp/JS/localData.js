@@ -58,10 +58,6 @@ $(function() {
     {id: 51,name: '王菡珺', state: 'un'}
   ]}
 
-  // function initData() {
-  //   var per = JSON.stringify(person);
-  //   local.setItem('lotteryData',per);
-  // }
 
   $('#initDataBtn').on('click',function() {
     var per = JSON.stringify(person);
