@@ -18,6 +18,7 @@ input {
   &::after {
     content: '';
     clear: both;
+    display: block;
     height: 0;
     line-height: 0;
     visibility: hidden;
@@ -196,51 +197,52 @@ input {
 
 @keyframes jump {
   0% {
-    transform: translateY(0px);
+    transform: translateY(0px) scale(1);
+
   }
 
   30% {
-    transform: translateY(0px);
+    transform: translateY(0px) scale(1);
   }
 
   60% {
-    transform: translateY(-16px);
+    transform: translateY(-11px) scale(1.1);
   }
 
   68% {
-    transform: translateY(0px);
+    transform: translateY(0px)  scale(1);
   }
 
   76% {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.08);
   }
 
   85% {
-    transform: translateY(0px);
+    transform: translateY(0px) scale(1);
   }
 
   89% {
-    transform: translateY(-4px);
+    transform: translateY(-4px) scale(1.06);
   }
 
   93% {
-    transform: translateY(0px);
+    transform: translateY(0px) scale(1);
   }
 
   95% {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.04);
   }
 
   97% {
-    transform: translateY(0px);
+    transform: translateY(0px) scale(1);
   }
 
   98% {
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(1.02);
   }
 
   100% {
-    transform: translateY(0px);
+    transform: translateY(0px) scale(1);
   }
 }
 

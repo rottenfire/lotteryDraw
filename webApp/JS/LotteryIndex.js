@@ -204,7 +204,10 @@ $(function () {
   // 添加跳起来动画
   function addJump(arr) {
     arr.forEach(function(ele) {
-      $('#person').find('#li' + ele).addClass('jump');
+      var timeBase = Math.ceil(Math.random() * 150);
+      setTimeout(function() {
+        $('#person').find('#li' + ele).addClass('jump');
+      },timeBase);
     })
   }
 
