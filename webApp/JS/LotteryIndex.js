@@ -18,13 +18,16 @@ $(function () {
   var rollLock = false;
 
   initData();
-  resetActiveArr('b');
-  initPage();
+  // resetActiveArr('b');
+  // initPage();
 
   // 初始化数据
   function initData() {
     localData = JSON.parse(localStore.getItem('lotteryData'));
     // console.log(localData);
+    if(!localData) {
+      return;
+    }
     data = localData.data;
     console.log(localData.data);
     // console.log(data);
@@ -38,6 +41,8 @@ $(function () {
     }
     console.log('initiativeArr:', initiativeArr);
     console.log('passiveArr:', passiveArr);
+    resetActiveArr('b');
+    initPage();
   }
 
   // 初始化界面
@@ -45,6 +50,7 @@ $(function () {
     var liHtmlString = template('personLi', localData);
     // console.log(liHtmlString);
     $('#person').html(liHtmlString);
+    bindEvent();
   }
 
   // 重置操作列表
@@ -70,7 +76,7 @@ $(function () {
     // 逐渐缓慢滚动功能
     function roll() {
       rollLock = true;
-      t += t / 2;
+      t += t / 4;
       // console.log(t);
       resArr = randPickN(n, arr);
       $('#person').children().removeClass(type);
@@ -190,69 +196,74 @@ $(function () {
     window.location.reload();
   }
 
-  // 被夸人按钮事件
-  $('#pBtn').on('click', function () {
-    if (rollLock) {
-      return;
-    }
-    resetActiveArr('i');
-    pickFunction(1, pArr, 'active_p');
-  });
 
-  // 主动夸人按钮事件
-  $('#iBtn').on('click', function () {
-    if (rollLock) {
-      return;
-    }
-    var num = $('#iInput').val()? parseInt($('#iInput').val()) : 5;
-    // var num = parseInt($('#iInput').val());
-    resetActiveArr('p');
-    pickFunction(num, iArr, 'active_i');
-  });
+  // 为各个按钮绑定事件
+  function bindEvent() {
+    // 被夸人按钮事件
+    $('#pBtn').on('click', function () {
+      if (rollLock) {
+        return;
+      }
+      resetActiveArr('i');
+      pickFunction(1, pArr, 'active_p');
+    });
 
-  // 保存本次选择按钮事件
-  $('#saveBtn').on('click', function () {
-    if (rollLock) {
-      return;
-    }
-    saveData();
-    window.location.reload();
-  });
+    // 主动夸人按钮事件
+    $('#iBtn').on('click', function () {
+      if (rollLock) {
+        return;
+      }
+      var num = $('#iInput').val() ? parseInt($('#iInput').val()) : 5;
+      // var num = parseInt($('#iInput').val());
+      resetActiveArr('p');
+      pickFunction(num, iArr, 'active_i');
+    });
 
-
-  // 重置按钮事件
-  $('#resetBtn').on('click', function () {
-    if (rollLock) {
-      return;
-    }
-    $('#deleteModal').modal('show');
-  })
-
-  // 确认重置按钮事件
-  $('#confirmBtn').on('click', function () {
-    resetData();
-  })
-
-  // 刷新按钮事件
-  $('#refreshBtn').on('click', function () {
-    if (rollLock) {
-      return;
-    }
-    window.location.reload();
-  })
+    // 保存本次选择按钮事件
+    $('#saveBtn').on('click', function () {
+      if (rollLock) {
+        return;
+      }
+      saveData();
+      window.location.reload();
+    });
 
 
-  // input框输入去掉非数字字符
-  $('#iInput').on('keyup', function (e) {
-    // console.log($(this).val());
-    // console.log('key', e.keyCode);
-    var personNum = $(this).val();
-    if (e.keyCode > 57 || e.keyCode <= 48 && e.keyCode!== 13 && e.keyCode!== 8) {
-      // console.log('cuole !');
-      personNum=personNum.substring(0,personNum.length-1);
-      $(this).val(personNum);
-    }
-    // console.log(personNum);
-  })
+    // 重置按钮事件
+    $('#resetBtn').on('click', function () {
+      if (rollLock) {
+        return;
+      }
+      $('#deleteModal').modal('show');
+    })
+
+    // 确认重置按钮事件
+    $('#confirmBtn').on('click', function () {
+      resetData();
+    })
+
+    // 刷新按钮事件
+    $('#refreshBtn').on('click', function () {
+      if (rollLock) {
+        return;
+      }
+      window.location.reload();
+    })
+
+
+    // input框输入去掉非数字字符
+    $('#iInput').on('keyup', function (e) {
+      // console.log($(this).val());
+      // console.log('key', e.keyCode);
+      var personNum = $(this).val();
+      if (e.keyCode > 57 || e.keyCode <= 48 && e.keyCode !== 13 && e.keyCode !== 8) {
+        // console.log('cuole !');
+        personNum = personNum.substring(0, personNum.length - 1);
+        $(this).val(personNum);
+      }
+      // console.log(personNum);
+    })
+  }
+
 
 });

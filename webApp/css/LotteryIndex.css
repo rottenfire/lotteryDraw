@@ -149,17 +149,6 @@ input {
   margin-right: 50px;
   cursor: pointer;
 }
-#Btn #refreshBtn {
-  float: right;
-  width: 100px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  background-color: #f0efa7;
-  border: 1px solid #000;
-  margin-right: 50px;
-  cursor: pointer;
-}
 #initDataP {
   font-size: 30px;
   text-align: center;
