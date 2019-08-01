@@ -79,7 +79,7 @@ input {
 }
 
 #person {
-  overflow: hidden;
+  // overflow: hidden;
 
   li {
     text-align: center;
@@ -177,17 +177,71 @@ input {
     cursor: pointer;
   }
 
-  // #refreshBtn {
-  //   float: right;
-  //   width: 100px;
-  //   height: 50px;
-  //   line-height: 50px;
-  //   text-align: center;
-  //   background-color: #f0efa7;
-  //   border: 1px solid #000;
-  //   margin-right: 50px;
-  //   cursor: pointer;
-  // }
+  #refreshBtn {
+    float: right;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #f0efa7;
+    border: 1px solid #000;
+    margin-right: 50px;
+    cursor: pointer;
+  }
+}
+
+.jump {
+  animation: jump .8s ease-in-out infinite;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+
+  30% {
+    transform: translateY(0px);
+  }
+
+  60% {
+    transform: translateY(-16px);
+  }
+
+  68% {
+    transform: translateY(0px);
+  }
+
+  76% {
+    transform: translateY(-8px);
+  }
+
+  85% {
+    transform: translateY(0px);
+  }
+
+  89% {
+    transform: translateY(-4px);
+  }
+
+  93% {
+    transform: translateY(0px);
+  }
+
+  95% {
+    transform: translateY(-2px);
+  }
+
+  97% {
+    transform: translateY(0px);
+  }
+
+  98% {
+    transform: translateY(-1px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 #initDataP {
