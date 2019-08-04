@@ -17,38 +17,60 @@
 </head>
 
 <body>
-  <h3 id="title">夸一夸</h3>
-  <ul id="help">
-    <li>
-      <span>未选过: </span>
-      <div id="unkua" class="box"></div>
-    </li>
-    <li>
-      <span>已被夸: </span>
-      <div id="pkua" class="box"></div>
-    </li>
-    <li>
-      <span>已夸过: </span>
-      <div id="ikua" class="box"></div>
-    </li>
-    <li>
-      <span>天选之子: </span>
-      <div id="bkua" class="box"></div>
-    </li>
-  </ul>
-  <ul id="person" class="clearfix">
-    <p id="initDataP">请点击此处<a id="initDataBtn" href="javascript:;">初始化数据</a></p>
-  </ul>
-  <div id="Btn" class="clearfix">
-    <div id="pBtn">夸谁呢？</div>
-    <input id="iInput" type="text" value="5" maxlength="2">
-    <div id="iBtn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;们来夸Ta</div>
-    <div id="resetBtn">重置</div>
-    <div id="saveBtn">保存本次夸夸名单</div>
-    <div id="refreshBtn">刷新</div>
+  <div id="main" class="clearfix">
+    <h3 id="title">夸一夸</h3>
+    <ul id="help">
+      <li>
+        <span>未选过: </span>
+        <div id="unkua" class="box"></div>
+      </li>
+      <li>
+        <span>已被夸: </span>
+        <div id="pkua" class="box"></div>
+      </li>
+      <li>
+        <span>已夸过: </span>
+        <div id="ikua" class="box"></div>
+      </li>
+      <li>
+        <span>天选之子: </span>
+        <div id="bkua" class="box"></div>
+      </li>
+    </ul>
+    <div id="content" class="clearfix">
+      <ul id="person" class="clearfix">
+        <p id="initDataP">请点击此处<a id="initDataBtn" href="javascript:;">初始化数据</a></p>
+      </ul>
+      <div id="Btn" class="clearfix">
+        <div id="pBtn">夸谁呢？</div>
+        <input id="iInput" type="text" value="5" maxlength="2">
+        <div id="iBtn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;们来夸Ta</div>
+        <div id="refreshBtn">刷新</div>
+        <div id="saveBtn">保存本次夸夸名单</div>
+        <div id="resetBtn">重置</div>
+      </div>
+
+    </div>
+    <div id="history">
+      <dl id="hisList">
+        <dt>第一组</dt>
+        <dd class="pdd">张三</dd>
+        <dd class="idd">王五</dd>
+        <dd class="idd">李四</dd>
+        <dd class="idd">赵柳元</dd>
+        <dd class="idd">王五</dd>
+        <dd class="idd">李四</dd>
+        <dd class="idd">赵柳元</dd>
+      </dl>
+      <dl id="hisList">
+        <dt>第二组</dt>
+        <dd class="pdd">张三</dd>
+        <dd class="idd">王五</dd>
+        <dd class="idd">李四</dd>
+        <dd class="idd">赵柳元</dd>
+      </dl>
+    </div>
   </div>
-
-
 
   <!-- 删除事件模态框 -->
   <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog">

@@ -20,24 +20,24 @@ input {
   line-height: 0;
   visibility: hidden;
 }
-#title {
+#main #title {
   font-size: 30px;
   text-align: center;
   height: 50px;
   line-height: 50px;
 }
-#help {
+#main #help {
   height: 50px;
   vertical-align: middle;
   margin-left: 20px;
 }
-#help li {
+#main #help li {
   float: left;
   margin-right: 10px;
   height: 20px;
   line-height: 20px;
 }
-#help li span {
+#main #help li span {
   float: left;
   font-size: 12px;
   display: block;
@@ -45,7 +45,7 @@ input {
   line-height: 20px;
   margin-right: 5px;
 }
-#help li .box {
+#main #help li .box {
   float: left;
   display: block;
   border: 1px dashed #000;
@@ -53,19 +53,24 @@ input {
   height: 20px;
   box-sizing: border-box;
 }
-#help li #unkua {
+#main #help li #unkua {
   background-color: #ddd;
 }
-#help li #pkua {
+#main #help li #pkua {
   background-color: #a7c7f0;
 }
-#help li #ikua {
+#main #help li #ikua {
   background-color: #f0caa7;
 }
-#help li #bkua {
+#main #help li #bkua {
   background-color: #adf0a7;
 }
-#person li {
+#main #content {
+  width: 982px;
+  float: left;
+  border-right: 1px solid #ccc;
+}
+#main #content #person li {
   text-align: center;
   width: 100px;
   height: 40px;
@@ -74,36 +79,36 @@ input {
   margin: 0 20px 20px;
   border: 1px solid #000;
 }
-#person .un {
+#main #content #person .un {
   background-color: #ddd;
 }
-#person .i {
+#main #content #person .i {
   background-color: #f0caa7;
 }
-#person .p {
+#main #content #person .p {
   background-color: #a7c7f0;
 }
-#person .b {
+#main #content #person .b {
   background-color: #adf0a7;
 }
-#person .active_i {
+#main #content #person .active_i {
   background-color: #f58216;
 }
-#person .active_p {
+#main #content #person .active_p {
   background-color: #4093ff;
 }
-#Btn {
+#main #content #Btn {
   position: relative;
   padding-bottom: 30px;
 }
-#Btn #iInput {
+#main #content #Btn #iInput {
   width: 20px;
   height: 20px;
   position: absolute;
   top: 16px;
-  left: 210px;
+  left: 170px;
 }
-#Btn #pBtn {
+#main #content #Btn #pBtn {
   float: left;
   width: 100px;
   height: 50px;
@@ -111,10 +116,10 @@ input {
   text-align: center;
   background-color: #a7c7f0;
   border: 1px solid #000;
-  margin-left: 50px;
+  margin-left: 20px;
   cursor: pointer;
 }
-#Btn #iBtn {
+#main #content #Btn #iBtn {
   float: left;
   width: 100px;
   height: 50px;
@@ -122,41 +127,63 @@ input {
   text-align: center;
   background-color: #f0caa7;
   border: 1px solid #000;
-  margin-left: 50px;
+  margin-left: 40px;
   cursor: pointer;
 }
-#Btn #resetBtn {
-  float: right;
+#main #content #Btn #resetBtn {
+  float: left;
   width: 100px;
   height: 50px;
   line-height: 50px;
   text-align: center;
   background-color: #ff8a8a;
   border: 1px solid #000;
-  margin-right: 50px;
+  margin-left: 40px;
   cursor: pointer;
 }
-#Btn #saveBtn {
-  float: right;
+#main #content #Btn #saveBtn {
+  float: left;
   width: 150px;
   height: 50px;
   line-height: 50px;
   text-align: center;
   background-color: #adf0a7;
   border: 1px solid #000;
-  margin-right: 50px;
+  margin-left: 40px;
   cursor: pointer;
 }
-#Btn #refreshBtn {
-  float: right;
+#main #content #Btn #refreshBtn {
+  float: left;
   width: 100px;
   height: 50px;
   line-height: 50px;
   text-align: center;
   background-color: #f0efa7;
   border: 1px solid #000;
-  margin-right: 50px;
+  margin-left: 40px;
   cursor: pointer;
+}
+#main #history {
+  margin-left: 1000px;
+  margin-right: 20px;
+}
+#main #history dl dt {
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background-color: #adf0a7;
+}
+#main #history dl dd {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 20px;
+  border-bottom: 1px dashed #414141;
+}
+#main #history dl dd.pdd {
+  background-color: #a7c7f0;
+}
+#main #history dl dd.idd {
+  background-color: #f0caa7;
 }
 .jump {
   animation: jump 1.2s ease-in-out infinite;

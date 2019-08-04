@@ -135,9 +135,7 @@ $(function () {
     }
     var oriArr = [];
     var resArr = [];
-    for (var i = 0; i < arr.length; i++) {
-      oriArr[i] = arr[i];
-    }
+    oriArr = [].concat(...arr);
     for (var i = 0; i < n; i++) {
       var num = Math.ceil(Math.random() * oriArr.length - 1);
       resArr.push(oriArr[num]);
