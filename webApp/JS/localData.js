@@ -59,11 +59,11 @@ $(function() {
   ]}
 
 
-  $('#initDataBtn').on('click',function() {
+  if(!local.getItem('lotteryData')) {
     var per = JSON.stringify(person);
     local.setItem('lotteryData',per);
     window.location.reload();
-  })
+  }
  
 
 });

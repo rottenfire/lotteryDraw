@@ -39,7 +39,6 @@
     </ul>
     <div id="content" class="clearfix">
       <ul id="person" class="clearfix">
-        <p id="initDataP">请点击此处<a id="initDataBtn" href="javascript:;">初始化数据</a></p>
       </ul>
       <div id="Btn" class="clearfix">
         <div id="pBtn">夸谁呢？</div>
@@ -52,7 +51,7 @@
 
     </div>
     <div id="history">
-      <dl id="hisList">
+      <dl>
         <dt>第一组</dt>
         <dd class="pdd">张三</dd>
         <dd class="idd">王五</dd>
@@ -62,7 +61,7 @@
         <dd class="idd">李四</dd>
         <dd class="idd">赵柳元</dd>
       </dl>
-      <dl id="hisList">
+      <dl>
         <dt>第二组</dt>
         <dd class="pdd">张三</dd>
         <dd class="idd">王五</dd>
@@ -97,6 +96,22 @@
 <script id="personLi" type="text/html">
   {{each data item}}
   <li class="{{item.state}}" id="li{{item.id}}">{{item.name}}</li>
+  {{/each}}
+</script>
+
+<!-- 历史列表模板 -->
+<script id="historyList" type="text/html">
+  {{each data item}}
+  <dl>
+    <dt>第一组</dt>
+    <dd class="pdd">张三</dd>
+    <dd class="idd">王五</dd>
+    <dd class="idd">李四</dd>
+    <dd class="idd">赵柳元</dd>
+    <dd class="idd">王五</dd>
+    <dd class="idd">李四</dd>
+    <dd class="idd">赵柳元</dd>
+  </dl>
   {{/each}}
 </script>
 
