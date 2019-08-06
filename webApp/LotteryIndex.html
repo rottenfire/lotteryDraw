@@ -11,6 +11,7 @@
   <script src="./JS/jquery-1.12.4.min.js"></script>
   <script src="./JS/bootstrap/js/bootstrap.min.js"></script>
   <script src="./JS/template-web.js"></script>
+  <script src="./JS/base.js"></script>
   <!-- 插入初始人员数据 -->
   <script src="./JS/localData.js"></script>
   <script src="./JS/LotteryIndex.js"></script>
@@ -45,29 +46,19 @@
         <input id="iInput" type="text" value="5" maxlength="2">
         <div id="iBtn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;们来夸Ta</div>
         <div id="refreshBtn">刷新</div>
-        <div id="saveBtn">保存本次夸夸名单</div>
+        <div id="saveBtn">保存</div>
         <div id="resetBtn">重置</div>
+        <div id="resetHisBtn">重置列表</div>
       </div>
 
     </div>
     <div id="history">
-      <dl>
-        <dt>第一组</dt>
-        <dd class="pdd">张三</dd>
-        <dd class="idd">王五</dd>
-        <dd class="idd">李四</dd>
-        <dd class="idd">赵柳元</dd>
-        <dd class="idd">王五</dd>
-        <dd class="idd">李四</dd>
-        <dd class="idd">赵柳元</dd>
-      </dl>
-      <dl>
-        <dt>第二组</dt>
-        <dd class="pdd">张三</dd>
-        <dd class="idd">王五</dd>
-        <dd class="idd">李四</dd>
-        <dd class="idd">赵柳元</dd>
-      </dl>
+      <div id="hisTitle">
+        天选之子们
+      </div>
+      <div id="hisList">
+
+      </div>
     </div>
   </div>
 
@@ -103,14 +94,13 @@
 <script id="historyList" type="text/html">
   {{each data item}}
   <dl>
-    <dt>第一组</dt>
-    <dd class="pdd">张三</dd>
-    <dd class="idd">王五</dd>
-    <dd class="idd">李四</dd>
-    <dd class="idd">赵柳元</dd>
-    <dd class="idd">王五</dd>
-    <dd class="idd">李四</dd>
-    <dd class="idd">赵柳元</dd>
+    <dt>{{item.date}}</dt>
+    {{each item.iList per}}
+    <dd class="pdd">{{per}}</dd>
+    {{/each}}
+    {{each item.pList per}}
+    <dd class="idd">{{per}}</dd>
+    {{/each}}
   </dl>
   {{/each}}
 </script>

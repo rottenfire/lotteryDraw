@@ -64,6 +64,30 @@ $(function() {
     local.setItem('lotteryData',per);
     window.location.reload();
   }
+
+
+
+  let initHistoryList = {
+    data: [
+      // {
+      //   title: '第一天',
+      //   date: '2019-8-5 19:30',
+      //   iList: ['王伟达','张轲','张帅','王菡珺','王站'],
+      //   pList: ['孙海永']
+      // },
+      // {
+      //   title: '第二天',
+      //   date: '2019-8-6 9:30',
+      //   iList: ['徐作肖','张三','李四','王五','赵柳'],
+      //   pList: ['萧瑟']
+      // },
+    ]
+  }
  
+  if(!local.getItem('lotteryHistoryListData')) {
+    var per = JSON.stringify(initHistoryList);
+    local.setItem('lotteryHistoryListData',per);
+    // window.location.reload();
+  }
 
 });

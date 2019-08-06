@@ -143,7 +143,7 @@ input {
 }
 #main #content #Btn #saveBtn {
   float: left;
-  width: 150px;
+  width: 100px;
   height: 50px;
   line-height: 50px;
   text-align: center;
@@ -163,27 +163,46 @@ input {
   margin-left: 40px;
   cursor: pointer;
 }
+#main #content #Btn #resetHisBtn {
+  float: left;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #eb99ff;
+  border: 1px solid #000;
+  margin-left: 40px;
+  cursor: pointer;
+}
 #main #history {
   margin-left: 1000px;
   margin-right: 20px;
   min-width: 80px;
 }
-#main #history dl dt {
+#main #history #hisTitle {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #f0efa7;
+  text-align: center;
+  font-weight: 600;
+}
+#main #history #hisList dl dt {
   text-align: center;
   height: 30px;
   line-height: 30px;
   background-color: #adf0a7;
 }
-#main #history dl dd {
+#main #history #hisList dl dd {
   height: 30px;
   line-height: 30px;
   padding-left: 20px;
   border-bottom: 1px dashed #414141;
 }
-#main #history dl dd.pdd {
+#main #history #hisList dl dd.pdd {
   background-color: #a7c7f0;
 }
-#main #history dl dd.idd {
+#main #history #hisList dl dd.idd {
   background-color: #f0caa7;
 }
 .jump {
