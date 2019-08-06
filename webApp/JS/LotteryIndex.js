@@ -23,7 +23,6 @@ $(function () {
   }
 
 
-
   /**
    * 初始化数据
    */
@@ -50,12 +49,11 @@ $(function () {
   }
 
 
-
   /**
    * 初始化人员列表
    */
   function initPersonList() {
-    $('#person').html(setTemplate('personLi',localData));
+    $('#person').html(template('personLi', localData));
   }
 
 
@@ -65,18 +63,9 @@ $(function () {
   function initHistoryList() {
     // console.log(liHtmlString);
     const hisData = getLocalStorage('lotteryHistoryListData');
-    $('#hisList').html(setTemplate('historyList',hisData));
+    $('#hisList').html(template('historyList', hisData));
   }
 
-  /**
-   * 
-   * @param {*} templateId 模板ID
-   * @param {*} data 传入模板的数据
-   * @return {string} 获得的模板结构字符串
-   */
-  const setTemplate = (templateId,data) => {
-    return template(templateId,data);
-  }
 
   /**
    * 重置操作列表iArr、pArr
@@ -169,7 +158,6 @@ $(function () {
    * 随机抽取n个人
    * @param {number} personNum input传入的值，需要抽取的人数 
    * @param {Array} arr 抽取基数组，各项为人员id
-   * 
    * @return {Array}返回id组成的数组
    */
   function randPickN(personNum, arr) {
@@ -194,54 +182,40 @@ $(function () {
    *  保存本次选中人的信息
    */
   function saveData() {
-    // console.log(iNow);
-    // console.log(pNow);
     iNow.forEach(function (ele, i) {
-      // console.log(ele);
       localData.data.forEach(function (item, idx) {
         if (item.id === ele) {
-          // console.log(item);
-          // console.log('存在iiiiiiiii');
           if (item.state === 'un') {
             localData.data[idx].state = 'i';
-            // console.log(localData.data[idx]);
           } else if (item.state === 'p') {
             localData.data[idx].state = 'b';
-            // console.log(localData.data[idx]);
           }
         }
       })
     });
     pNow.forEach(function (ele, i) {
-      // console.log(ele);
       localData.data.forEach(function (item, idx) {
         if (item.id === ele) {
-          // console.log(item);
-          // console.log('存在pppppppp');
           if (item.state === 'un') {
             localData.data[idx].state = 'p';
-            // console.log(localData.data[idx]);
           } else if (item.state === 'i') {
             localData.data[idx].state = 'b';
-            // console.log(localData.data[idx]);
           }
         }
       })
     });
-    formatHistoryData();
-    // console.log(localData.data);
-    var saveD = JSON.stringify(localData);
-    // console.log(saveD);
-    localStore.setItem('lotteryData', saveD);
+    saveHistoryData();
+    saveLocalStorage('lotteryData', localData);
   }
 
 
   /**
    * 格式化本次选中人的信息用于保存于lotteryHistoryListData
    */
-  const formatHistoryData = () => {
-    console.log(iNow);
-    console.log(pNow);
+  const saveHistoryData = () => {
+    if (iNow.length === 0 && pNow.length === 0) {
+      return;
+    }
 
     let perData = getLocalStorage('lotteryData');
     let pData = [];
@@ -260,12 +234,10 @@ $(function () {
       pList: pData
     }
     let oldData = getLocalStorage('lotteryHistoryListData');
-    if(!oldData) {
+    if (!oldData) {
       oldData.data = [];
     }
-    oldData.data.push(hisData);
-
-    console.log(oldData);
+    oldData.data.unshift(hisData);
     saveLocalStorage('lotteryHistoryListData', oldData);
   }
 
@@ -363,8 +335,6 @@ $(function () {
   }
 
 
-
-
   /**
    * 为各个按钮绑定事件
    */
@@ -393,7 +363,7 @@ $(function () {
       pickFunction(num, iArr, 'active_i');
     });
 
-    // 保存本次选择按钮事件
+    // 保存按钮事件
     $('#saveBtn').on('click', function () {
       if (rollLock) {
         return;
@@ -425,26 +395,25 @@ $(function () {
     })
 
     // 重置列表按钮事件
-    $('#resetHisBtn').on('click',function() {
-      saveLocalStorage('lotteryHistoryListData',{data:[]});
+    $('#resetHisBtn').on('click', function () {
+      saveLocalStorage('lotteryHistoryListData', {
+        data: []
+      });
       freshPage();
     })
 
     // input框输入去掉非数字字符
     $('#iInput').on('keyup', function (e) {
-      // console.log($(this).val());
       console.log('key', e.keyCode);
       var personNum = $(this).val();
       if (e.keyCode > 57 || e.keyCode < 48 && e.keyCode !== 13 && e.keyCode !== 8) {
-        // console.log('cuole !');
         personNum = personNum.substring(0, personNum.length - 1);
         $(this).val(personNum);
       }
-      // console.log(personNum);
     })
   }
 
-  //调用初始化
+  //初始化调用
   init();
 
 
